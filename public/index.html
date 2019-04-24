@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h1{
+            background: black;
+        }
+        .bg-image{
+            filter: brightness(50%);
+        }
+        header{
+            background: black;
+        }
+
+        /* .form-border{
+            border: 2px solid black;
+        } */
+        img{
+            filter: brightness(50%);
+        }
+
+        .box{
+            -webkit-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+            box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+        }
+    </style>
+</head>
+<body>
+    <div><h1 class="text-center m-0"><span class="mt-3 mb-4 text-white ">Welcome to Student Registeration Application</span></h1></div>
+    <img src="images/charles-unsplash-min.jpg" class="img-fluid position-absolute bg-image"  alt="">
+    <div class="button-container position-relative m-5 d-flex justify-content-center" id="firstdiv">
+        <form action="register" method="GET">
+            <input type="hidden" name="status" value="click_on_register">
+            <button class="btn-primary btn-lg d-flex m-3" type="submit">Register</button>
+        </form>
+        <form action="login" method="GET">
+                <input type="hidden" name="status" value="click_on_login">
+            <button class="btn-success btn-lg d-flex m-3" type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

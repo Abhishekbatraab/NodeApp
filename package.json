@@ -1,0 +1,16 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "Having feature of registration and login of student",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Abhishek Batra",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "local-storage": "^1.4.2"
+  }
+}

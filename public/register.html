@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+         header{
+            background: black;
+        }
+
+           /* .form-border{
+            border: 2px solid black;
+        } */
+        img{
+            filter: brightness(50%);
+        }
+
+        .box{
+            -webkit-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+            box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.75);
+        }
+
+        span{
+            height: 20px;
+            display: inline-block;
+            transition: 1s;
+            color: #fff;
+            margin-top: 5px;
+            border-radius: 5px;
+            
+        }
+        span.red{
+            background: red;
+            width: 50px;
+        }
+        span.yellow{
+            background: yellow;
+            width: 100px;
+        }
+        span.green{
+            background: green;
+            width: 150px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12  d-flex justify-content-center">
+                    <h1 class="text-white text-capitalize">Fill form to Register</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="main-section">
+        <div class="container-fluid">
+            <div class="row">
+                <img src="images/register-bg.jpg" class="img-fluid position-absolute"  alt="">
+            </div>
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center mt-5 mx-auto">
+                    <div class="box border border-primary rounded-lg">
+                            <form class="m-4 text-white font-weight-bold" action="registerUser" method="POST">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="forfirstname">First Name</label>
+                                            <input type="text" class="form-control" name="firstName" id="firstname" placeholder="Enter Your First Name">
+                                        </div>
+                                        <div class="col">
+                                            <label for="forlastname">Last Name</label>
+                                            <input type="text" class="form-control" name="lastName" id="lastname" placeholder="Enter Your Last Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col"><label for="inputEmail">Email address</label></div>
+                                        <div class="col"><span></span></div>
+                                    </div>
+                                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    <!-- <span></span> -->
+                                </div>
+                                <div class="form-group" id="passworddiv">
+                                   <div class="row">
+                                       <div class="col"> <label for="exampleInputPassword1">Password</label></div>
+                                       <div class="col"><span></span></div>
+                                       <div class="col"><span></span></div>
+                                   </div>   
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                                    <!-- <span></span>
+                                    <span></span> -->
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col"><label for="inputPassword">Confirm Password</label></div>
+                                        <div class="col"><span></span></div>
+                                    </div>
+                                    <input type="password" name="confirmPassword" class="form-control" id="confirmpassword" placeholder="Confirm Password">
+                                    <!-- <span></span> -->
+                                </div>
+                                <!-- <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary">Register Your Account</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        window.addEventListener("load", init);
+        function init() {
+            fistname = document.querySelector("#firstname");
+            lastname = document.querySelector("#lastname");
+            email = document.querySelector("#email");
+            password = document.querySelector("#password");
+            confirmPassword = document.querySelector("#confirmpassword");
+            passworddiv = document.querySelector("#passworddiv");
+            span = document.querySelectorAll("span");
+            // file = document.querySelector("#file");
+            // file.addEventListener("change", uploadImage);
+            password.addEventListener("keyup", passwordStrength);
+            confirmPassword.addEventListener("keyup", checkPassword);
+            email.addEventListener("keyup", validateEmail);
+            email.addEventListener("keyup", validateMailPattern);
+            
+        }
+
+        function redirect() {
+            event.preventDefault();
+        }
+
+        function checkFirstNameStrength(){
+
+        }
+
+        function passwordStrength() {
+            if(password.value.length == 0){
+               span[1].innerHTML = "Min. 5 digits Req.";
+               span[1].className=" ";
+               span[2].innerHTML = " ";
+            }
+            else if(password.value.length>1&&password.value.length<5){
+                span[1].innerHTML = " ";
+                span[2].innerHTML = "weak password";
+                span[1].className="red";
+            }
+            else if(password.value.length>5&&password.value.length<8){
+                span[2].innerHTML = "average";
+                span[1].className="yellow";
+            }
+            else if(password.value.length>8){
+                span[2].innerHTML = "strong";
+                span[1].className="green";
+            }
+        }
+
+        function checkPassword(){
+            if(password.value===confirmPassword.value){
+                span[3].innerHTML = "Password Matched";
+            }
+            else{
+                span[3].innerHTML= "Password Not Matched";
+            }
+        }
+
+        // function uploadImage() {
+        //     img = document.querySelector("#image");
+        //     imageName = file.files[0].name;
+        //     img.src = 'images/'+imageName;
+        // }
+
+        function validateEmail(){
+            var str = email.value;
+            if(isBlank(str)){
+                span[0].innerHTML = " ";
+            }else{
+                span[0].innerHTML = "Don't Left Blank";
+            }
+        }
+
+        function validateMailPattern(){
+            var str = email.value;
+            if(checkMail(str)){
+                span[0].innerHTML = " ";
+            }
+            else{
+                span[0].innerHTML = "Email is not correct";
+            }
+        }
+
+        function isBlank(str) {
+            return (/[^\s]/.test(str))
+        }
+
+        function checkMail(str){
+            return (/\w+([@]{1})+\w+[.]+\w+/.test(str));
+        }
+    </script>
+</body>
+</html>
